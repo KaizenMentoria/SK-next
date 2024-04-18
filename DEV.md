@@ -23,7 +23,7 @@ https://rjdudley.com/installing-asp-net-core-identity-in-postgresql/
 
 # bibliotecas dotnet (dotnet add package)
 - Npgsql.EntityFrameworkCore.PostgreSQL
-- Microsoft.EntityFrameworkCore.Design
+- Microsoft.EntityFrameworgkCore.Design
 - Microsoft.EntityFrameworkCore.SQLite
 - Microsoft.VisualStudio.Web.CodeGeneration.Design
 - Microsoft.EntityFrameworkCore.SqlServer
