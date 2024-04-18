@@ -1,3 +1,5 @@
+# Criando template do projeto
+- `dotnet new mvc --auth Individual --use-program-main --output App`
 # instalando ferramentas dotnet
 export PATH=$HOME/.dotnet/tools:$PATH
 dotnet tool install --global dotnet-ef
