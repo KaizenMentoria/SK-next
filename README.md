@@ -9,3 +9,5 @@ Com isto o repositório local está _bind mounted_ em `/workspace` no container 
 - Mudar para o diretório `/workspace/app`
 - Se o banco de dados não foi inicializado, fazer `dotnet-ef database update`
 - Fazer `dotnet run` ou `dotnet watch` para colocar o app no ar
+
+oooo
