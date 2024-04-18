@@ -7,7 +7,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: sistemakaizendev
+      POSTGRES_DB: postgres
     volumes:
       - type: volume
         source: SKDevDbVolume
