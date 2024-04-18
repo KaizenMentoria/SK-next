@@ -1,41 +1,16 @@
 # Criando template do projeto
-- `dotnet new mvc --auth Individual --use-program-main --output App`
-# instalando ferramentas dotnet
-export PATH=$HOME/.dotnet/tools:$PATH
-dotnet tool install --global dotnet-ef
-dotnet tool install --global dotnet-aspnet-codegenerator
+- `dotnet new mvc --auth Individual --use-program-main --output App` copia o template localmente
+- `dotnet add package` para `Npgsql` e `Npgsql.EntityFrameworkCore.PostgreSQL` para usarmos PostgreSQL
+- Ajustar connection string em `appsettings.json` para apontar para o DB conteinerizado, i.e. `"Server=database;Port=5432;Database=postgres;User Id=postgres;Password=postgres;"`
+- Trocar `UseSqlite` por `UseNpgsql` em `builder.Services.AddDbContext` em `Program.cs`
+- Apagar `Data/Migrations/` para remover as migrações iniciais (criadas para SQLite por padrão)
+- Recriar migrações usando `dotnet ef migrations add IdentityInitial`
+- Se desejado, alterar porta do webserver em  `Properties/launchSettings.json`
 
-# connection string
-para postgres sob Npgsql
-Server=127.0.0.1;Port=5432;Database=myDataBase;User Id=myUsername;Password=myPassword;
-https://rjdudley.com/installing-asp-net-core-identity-in-postgresql/
-
-# app + auth a partir de template
-- `$ dotnet new mvc -au Individual -o app --use-program-main`: cria app básico MVC Asp.Net usando esquema de autenticação Individual.
-- `$ dotnet add package Npgsql ; dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL`: pacotes necessários para conexão do .NET com banco PostgreSQL.
-- `app/appSettings.json`: mudar default connection para connection string do Postgres, formato "`Server=127.0.0.1;Port=5432;Database=myDataBase;User Id=postgres;Password=postgres"`.
-- `app/Program.cs`: substituir `UseSqlite` por `UseNpgsql`.
-- `$ dotnet-ef migrations remove`: remove migrações que vem por padrão.
-- `$ dotnet-ef migrations add MigracaoInicial`: cria nova migração incluindo as coisas do Identity.
-- `$ dotnet-ef database update`: aplica as migrações já no banco Postgres.
 ## removendo Implicit Usings
 - `app.csproj`: trocar `ImplicitUsings` para `disable`
 - `Program.cs`: adicionar explicitamente os usings como descrito [neste artigo](https://learn.microsoft.com/en-us/dotnet/core/project-sdk/overview#implicit-using-directives)
 - `HomeController.cs`: adicionar explicitamente os usings pedidos. Tente `dotnet run` para o compilador avisar quais faltam (provavelmente `Microsoft.Extensions.Logging`)
-
-# bibliotecas dotnet (dotnet add package)
-- Npgsql.EntityFrameworkCore.PostgreSQL
-- Microsoft.EntityFrameworgkCore.Design
-- Microsoft.EntityFrameworkCore.SQLite
-- Microsoft.VisualStudio.Web.CodeGeneration.Design
-- Microsoft.EntityFrameworkCore.SqlServer
-- Microsoft.EntityFrameworkCore.Tools
-
-# migrations
-dotnet-ef database drop
-dotnet-ef database update
-dotnet ef migrations list
-dotnet ef dbcontext {info,list,scaffold}
 
 # adicionar model e CRUD scaffold
 - criar Models/Xyz.cs
