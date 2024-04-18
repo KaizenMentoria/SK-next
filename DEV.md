@@ -12,10 +12,9 @@
 - `Program.cs`: adicionar explicitamente os usings como descrito [neste artigo](https://learn.microsoft.com/en-us/dotnet/core/project-sdk/overview#implicit-using-directives)
 - `HomeController.cs`: adicionar explicitamente os usings pedidos. Tente `dotnet run` para o compilador avisar quais faltam (provavelmente `Microsoft.Extensions.Logging`)
 
-# adicionar model e CRUD scaffold
-- criar Models/Xyz.cs
-- `dotnet aspnet-codegenerator controller -name XyzController -m Xyz -dc app.Data.XyzContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries --databaseProvider postgres`
-- ajustar db connection string em Program.cs
-- `dotnet ef migrations add XyzInitial`, `dotnet ef database update`
-- - caso erro 137: OOM/resource demais. rodar pelo docker engine e nao make.
-- possivelmente ajustar connectionstrings em appsettings.json
+# Criar modelo e gerar código para CRUD
+- Se necessário adicionar pacote `Microsft.VisualStudio.Web.CodeGeneration.Design`
+- Criar `Models/<Nome>.cs
+- Gerar código usando `dotnet aspnet-codegenerator controller -name <Nome>Controller -m <Nome> -dc ApplicationDbContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries --databaseProvider postgres`
+- Gerar migrations usando `dotnet ef migrations add <Nome>Initial`
+- Rodar migrations usando `dotnet ef database update`
