@@ -7,18 +7,19 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_HOST_AUTH_METHOD: trust
       POSTGRES_DB: sistemakaizen
     volumes:
       - type: volume
         source: sistemakaizendbvolume
         target: /var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - 5432:5432
 
   backend:
-    network_mode: host
+    command: sleep infinity
     tty: true
+    depends_on: 
+      - database
     build:
       context: .
       dockerfile: Dockerfile
@@ -28,20 +29,20 @@ services:
       - type: bind
         source: ..
         target: /workspace
-    ports:
-      - 8080:8080
+    network_mode: service:database
       
   pgadmin:
+    restart: unless-stopped
+    depends_on: 
+      - database
     image: dpage/pgadmin4
     volumes:
       - ./pgadmin4/servers.json:/pgadmin4/servers.json
     environment:
       PGADMIN_DEFAULT_EMAIL: pgadmin@pgadmin.com
       PGADMIN_DEFAULT_PASSWORD: pgadmin
-    ports:
-      - 5050:80
-    links:
-      - database
+      PGADMIN_LISTEN_PORT: 5050
+    network_mode: service:database
 
 volumes:
   sistemakaizendbvolume:
