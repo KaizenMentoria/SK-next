@@ -7,6 +7,9 @@
 - Abrir a Command Pallete e chamar `DevContainers: Rebuild and reopen in container`
 Com isto o repositório local está _bind mounted_ em `/workspace` e o VSCode roda dentro do conteiner.
 
+### Acessando PgAdmin4 do devconteiner
+Para acessar o PgAdmin4 conectado ao banco do devcontainer acesse localhost:5050 e coloque `pgadmin@pgadmin.com` como usuário e `pgadmin` como senha.
+
 ## Executando o projeto
 - Mudar para o diretório `/workspace/App`
 - Se o banco de dados não foi inicializado, fazer `dotnet-ef database update`

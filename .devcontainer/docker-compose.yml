@@ -1,4 +1,4 @@
-name: sistemakaizendevcompose
+name: sistemakaizencompose
 
 services:
   database:
@@ -10,10 +10,16 @@ services:
       POSTGRES_DB: sistemakaizen
     volumes:
       - type: volume
-        source: SKDevDbVolume
+        source: sistemakaizendbvolume
         target: /var/lib/postgresql/data
+    ports:
+      - 5432:5432
 
   backend:
+    command: sleep infinity
+    tty: true
+    depends_on: 
+      - database
     build:
       context: .
       dockerfile: Dockerfile
@@ -23,9 +29,20 @@ services:
       - type: bind
         source: ..
         target: /workspace
-    #command: dotnet watch --non-interactive --no-launch-profile
-    command: sleep infinity
+    network_mode: service:database
+      
+  pgadmin:
+    restart: unless-stopped
+    depends_on: 
+      - database
+    image: dpage/pgadmin4
+    volumes:
+      - ./pgadmin4/servers.json:/pgadmin4/servers.json
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin@pgadmin.com
+      PGADMIN_DEFAULT_PASSWORD: pgadmin
+      PGADMIN_LISTEN_PORT: 5050
     network_mode: service:database
 
 volumes:
-  SKDevDbVolume:
+  sistemakaizendbvolume:
