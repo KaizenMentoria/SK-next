@@ -51,3 +51,7 @@ TODO: prov colocar no ar o compose e expor a porta 5432. configurar projeto para
 - `dotnet ef migrations remove` remove a ultima migracao criada
 - `dotnet ef database drop` dropa o banco de dados todo
 - `dotnet ef database update` atualiza o DB com as migracoes
+
+# amenidades dev container
+- pgadmin4web em localhost:5050
+- no conteiner dev: as ferramentas _CSharpier_, _CSharprepl_, _dotnet-ef_, _aspnet-codegenerator_.
