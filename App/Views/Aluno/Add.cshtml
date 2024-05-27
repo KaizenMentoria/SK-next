@@ -1,0 +1,55 @@
+@model Aluno
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Novo Aluno</title>
+</head>
+<body>
+    <h1>Cadastrar Novo Aluno</h1>
+    <div asp-validation-summary="All" style="color: red"></div>
+    <form asp-action="Add" asp-controller="Aluno" method="post">
+        <label asp-for="InstructorId"></label>
+        <input asp-for="InstructorId" />
+        <span asp-validation-for="InstructorId"></span>
+        <br>
+        <label asp-for="FirstName"></label>
+        <input asp-for="FirstName" />
+        <span asp-validation-for="FirstName"></span>
+        <br>
+        <label asp-for="LastName"></label>
+        <input asp-for="LastName" />
+        <span asp-validation-for="LastName"></span>
+        <br>
+        <label asp-for="IsTenured"></label>
+        <input asp-for="IsTenured" />
+        <span asp-validation-for="IsTenured"></span>
+        <br>
+        <label asp-for="HiringDate"></label>
+        <input asp-for="HiringDate" />
+        <span asp-validation-for="HiringDate"></span>
+        <br>
+        <label asp-for="Rank"></label>
+        <select asp-for="Rank" asp-items="@Html.GetEnumSelectList(typeof(Ranks))">
+            <option value="">Select</option>
+        </select>
+        <span asp-validation-for="Rank"></span>
+        <br>
+        <label asp-for="PhoneNumber"></label>
+        <input asp-for="PhoneNumber" />
+        <span asp-validation-for="PhoneNumber"></span>
+        <br>
+        <label asp-for="EmailAddress"></label>
+        <input asp-for="EmailAddress" />
+        <span asp-validation-for="EmailAddress"></span>
+        
+        <br>
+        <br>
+        <input type="submit" value="Cadastrar Aluno" />
+    </form>
+
+    <a asp-action="Index">Index Aluno</a>
+</body>
+</html>
