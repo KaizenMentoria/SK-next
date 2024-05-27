@@ -1,4 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace workspace;
+using workspace.Data;
 
 public class Program
 {
@@ -8,6 +11,9 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
+        // Npgsql
+        var connectionString = builder.Configuration.GetConnectionString("NpgsqlDev");
+        builder.Services.AddDbContext<SKDbContext>(options => options.UseNpgsql(connectionString));
 
         var app = builder.Build();
 
