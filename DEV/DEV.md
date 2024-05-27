@@ -40,3 +40,7 @@ O setup do devcontainer inclui outros dois containers: um PostgreSQL com persist
 ## Sem devcontainer
 TODO: prov colocar no ar o compose e expor a porta 5432. configurar projeto para usar o db exposto.
 
+# criar modelo e scaffold DbContext, Views, Controller
+- Crie um modelo no diretorio Models
+- Rode o seguinte comando:
+ ```dotnet aspnet-codegenerator controller -name ⟨MODELO⟩Controller -m ⟨MODEL⟩ -dc ⟨DBCONTEXT⟩ --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries --databaseProvider postgres```
