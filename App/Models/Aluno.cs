@@ -6,6 +6,7 @@ namespace App.Models;
 
 public class Aluno
 {
+    [Required]
     public int AlunoId { get; set; }
 
     [Required(ErrorMessage = "Primeiro nome é obrigatório")]

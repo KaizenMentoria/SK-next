@@ -17,4 +17,6 @@ public class AlunoController : Controller
     {
         return View();
     }
+
+    
 }
