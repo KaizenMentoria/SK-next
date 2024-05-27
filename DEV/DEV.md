@@ -44,3 +44,10 @@ TODO: prov colocar no ar o compose e expor a porta 5432. configurar projeto para
 - Crie um modelo no diretorio Models
 - Rode o seguinte comando:
  ```dotnet aspnet-codegenerator controller -name ⟨MODELO⟩Controller -m ⟨MODEL⟩ -dc ⟨DBCONTEXT⟩ --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries --databaseProvider postgres```
+
+ # Interagindo com o banco de dados usando `dotnet ef`
+ ## principais comandos: 
+- `dotnet ef migrations add ⟨NOME DA MIGRACAO⟩` cria migracao para novos modelos
+- `dotnet ef migrations remove` remove a ultima migracao criada
+- `dotnet ef database drop` dropa o banco de dados todo
+- `dotnet ef database update` atualiza o DB com as migracoes
