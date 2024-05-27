@@ -18,5 +18,15 @@ public class AlunoController : Controller
         return View();
     }
 
-    
+    [HttpGet]
+    public IActionResult Add()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult Add(Aluno aluno)
+    {
+        return RedirectToAction("Index");
+    }
 }
