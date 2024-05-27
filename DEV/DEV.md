@@ -24,7 +24,11 @@ Colocar connection string para DB em appsettings.Development.json
 ## DbContext
 Criar um DbContext "vazio" no diretorio Data.
 ## Conexao Postgres
-Em Program.cs adicionar a seguintes linhas **ANTES** de `var app = builder.Build()`
+Em Program.cs adicionar a seguintes linhas **ANTES** de `var app = builder.Build()`:
 ```
 var connectionString = builder.Configuration.GetConnectionString(⟨CHAVE DA CONN STRING NO JSON⟩);
 builder.Services.AddDbContext<⟨APP DBCONTEXT⟩>(options => options.UseNpgsql(connectionString));
+```
+
+# Estilo de codigo e formatacao:
+CSharpier. Instale a tool `csharpier`, desligue code style+formatacao na sua IDE e configure para rodar CSharpier on save. Fique a vontade para usar Analyzers na IDE.
