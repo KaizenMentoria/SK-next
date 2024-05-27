@@ -1,0 +1,14 @@
+{
+    "Servers": {
+      "1": {
+        "Name": "SistemaKaizen Devcontainer",
+        "Group": "Servers",
+        "Port": 5432,
+        "SSLMode": "prefer",
+        "Host": "database",
+        "MaintenanceDB": "postgres",
+        "Username": "postgres",
+        "Password": "postgres"
+      }
+    }
+  }
