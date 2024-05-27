@@ -32,3 +32,11 @@ builder.Services.AddDbContext<⟨APP DBCONTEXT⟩>(options => options.UseNpgsql(
 
 # Estilo de codigo e formatacao:
 CSharpier. Instale a tool `csharpier`, desligue code style+formatacao na sua IDE e configure para rodar CSharpier on save. Fique a vontade para usar Analyzers na IDE.
+
+# Desenvolvendo o projeto
+## DevContainers
+Os editores VSCode e VS tem integracao com dev container. Abra a pasta raiz do projeto (que tem os diretorios .git e .devcontainer) e a propria IDE deve sugerir abrir em "modo" devcontainer.
+O setup do devcontainer inclui outros dois containers: um PostgreSQL com persistencia, e um rodando PgAdmin4 web apontando para o container anterior.
+## Sem devcontainer
+TODO: prov colocar no ar o compose e expor a porta 5432. configurar projeto para usar o db exposto.
+
