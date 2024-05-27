@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace workspace.Data
 {
     using workspace.Models;
+
     public class SKDbContext : DbContext
     {
         public SKDbContext(DbContextOptions<SKDbContext> options)
@@ -24,6 +24,5 @@ namespace workspace.Data
 
         public DbSet<Aluno> Alunos { get; set; }
         public DbSet<Turma> Turmas { get; set; }
-
     }
 }

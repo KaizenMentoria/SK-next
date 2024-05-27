@@ -1,5 +1,7 @@
 namespace workspace.Models;
+
 using workspace.Models;
+
 public class Aluno
 {
     // props universais

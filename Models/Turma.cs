@@ -1,4 +1,5 @@
 namespace workspace.Models;
+
 using workspace.Models;
 
 public class Turma
@@ -13,5 +14,4 @@ public class Turma
 
     // relacoes deste modelo
     public ICollection<Aluno>? Alunos { get; }
-    
 }

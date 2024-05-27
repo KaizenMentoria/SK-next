@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 
 namespace workspace;
+
 using workspace.Data;
 
 public class Program
@@ -28,9 +29,7 @@ public class Program
 
         // app.UseAuthorization();
 
-        app.MapControllerRoute(
-            name: "default",
-            pattern: "{controller=Home}/{action=Index}/{id?}");
+        app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
 
         app.Run();
     }
