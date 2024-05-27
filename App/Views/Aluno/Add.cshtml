@@ -11,40 +11,33 @@
     <h1>Cadastrar Novo Aluno</h1>
     <div asp-validation-summary="All" style="color: red"></div>
     <form asp-action="Add" asp-controller="Aluno" method="post">
-        <label asp-for="InstructorId"></label>
-        <input asp-for="InstructorId" />
-        <span asp-validation-for="InstructorId"></span>
+        <label asp-for="AlunoId"></label>
+        <input asp-for="AlunoId" />
+        <span asp-validation-for="AlunoId"></span>
         <br>
-        <label asp-for="FirstName"></label>
-        <input asp-for="FirstName" />
-        <span asp-validation-for="FirstName"></span>
+        <label asp-for="PrimeiroNome"></label>
+        <input asp-for="PrimeiroNome" />
+        <span asp-validation-for="PrimeiroNome"></span>
         <br>
-        <label asp-for="LastName"></label>
-        <input asp-for="LastName" />
-        <span asp-validation-for="LastName"></span>
+        <label asp-for="SegundoNome"></label>
+        <input asp-for="SegundoNome" />
+        <span asp-validation-for="SegundoNome"></span>
         <br>
-        <label asp-for="IsTenured"></label>
-        <input asp-for="IsTenured" />
-        <span asp-validation-for="IsTenured"></span>
+        <label asp-for="Sobrenome"></label>
+        <input asp-for="Sobrenome" />
+        <span asp-validation-for="Sobrenome"></span>
         <br>
-        <label asp-for="HiringDate"></label>
-        <input asp-for="HiringDate" />
-        <span asp-validation-for="HiringDate"></span>
+        <label asp-for="NumeroTelefone"></label>
+        <input asp-for="NumeroTelefone" />
+        <span asp-validation-for="NumeroTelefone"></span>
         <br>
-        <label asp-for="Rank"></label>
-        <select asp-for="Rank" asp-items="@Html.GetEnumSelectList(typeof(Ranks))">
-            <option value="">Select</option>
-        </select>
-        <span asp-validation-for="Rank"></span>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
         <br>
-        <label asp-for="PhoneNumber"></label>
-        <input asp-for="PhoneNumber" />
-        <span asp-validation-for="PhoneNumber"></span>
-        <br>
-        <label asp-for="EmailAddress"></label>
-        <input asp-for="EmailAddress" />
-        <span asp-validation-for="EmailAddress"></span>
-        
+        <label asp-for="DataNascimento"></label>
+        <input asp-for="DataNascimento" />
+        <span asp-validation-for="DataNascimento"></span>
         <br>
         <br>
         <input type="submit" value="Cadastrar Aluno" />

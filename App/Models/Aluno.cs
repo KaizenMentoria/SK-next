@@ -26,8 +26,9 @@ public class Aluno
 
     [EmailAddress]
     [Required(ErrorMessage = "Email é obrigatório")]
+    public string Email { get; set; }
     
     [Display(Name = "Data de Nascimento")]
     [DataType(DataType.DateTime)]
-    public DateTime Nascimento { get; set; }
+    public DateTime DataNascimento { get; set; }
 }
