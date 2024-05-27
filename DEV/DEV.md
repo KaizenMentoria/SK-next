@@ -41,9 +41,17 @@ O setup do devcontainer inclui outros dois containers: um PostgreSQL com persist
 TODO: prov colocar no ar o compose e expor a porta 5432. configurar projeto para usar o db exposto. provavalmente passar ENV? ou algum tipod e config?
 
 # criar modelo e scaffold DbContext, Views, Controller
-- Crie um modelo no diretorio Models
-- Rode o seguinte comando:
+Crie seu modelo no diretorio Models e execute um dos comandos que fazem a mesma coisa, mas com chamadas diferentes:
+
  ```dotnet aspnet-codegenerator controller -name ⟨MODELO⟩Controller -m ⟨MODEL⟩ -dc ⟨DBCONTEXT⟩ --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries --databaseProvider postgres```
+
+ ou
+
+ ```dotnet aspnet-codegenerator controller -outDir Controllers -udl -scripts -dbProvider postgres -name <MODEL>Controller -m <MODEL> -dc <DBCONTEXT>```
+
+ ou
+
+ ```model=<MODEL> dotnet aspnet-codegenerator controller -outDir Controllers -udl -scripts -dbProvider postgres -name ${model}Controller -m $model -dc <DBCONTEXT>```
 
  # Interagindo com o banco de dados usando `dotnet ef`
  ## principais comandos: 
