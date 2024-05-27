@@ -1,48 +1,41 @@
 @model Aluno
+@{
+    Layout = "_Layout";
+}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Novo Aluno</title>
-</head>
-<body>
-    <h1>Cadastrar Novo Aluno</h1>
-    <div asp-validation-summary="All" style="color: red"></div>
-    <form asp-action="Add" asp-controller="Aluno" method="post">
-        <label asp-for="AlunoId"></label>
-        <input asp-for="AlunoId" />
-        <span asp-validation-for="AlunoId"></span>
-        <br>
-        <label asp-for="PrimeiroNome"></label>
-        <input asp-for="PrimeiroNome" />
-        <span asp-validation-for="PrimeiroNome"></span>
-        <br>
-        <label asp-for="SegundoNome"></label>
-        <input asp-for="SegundoNome" />
-        <span asp-validation-for="SegundoNome"></span>
-        <br>
-        <label asp-for="Sobrenome"></label>
-        <input asp-for="Sobrenome" />
-        <span asp-validation-for="Sobrenome"></span>
-        <br>
-        <label asp-for="NumeroTelefone"></label>
-        <input asp-for="NumeroTelefone" />
-        <span asp-validation-for="NumeroTelefone"></span>
-        <br>
-        <label asp-for="Email"></label>
-        <input asp-for="Email" />
-        <span asp-validation-for="Email"></span>
-        <br>
-        <label asp-for="DataNascimento"></label>
-        <input asp-for="DataNascimento" />
-        <span asp-validation-for="DataNascimento"></span>
-        <br>
-        <br>
-        <input type="submit" value="Cadastrar Aluno" />
-    </form>
+<h1>Cadastrar Novo Aluno</h1>
+<div asp-validation-summary="All" style="color: red"></div>
+<form asp-action="Add" asp-controller="Aluno" method="post">
+    <label asp-for="AlunoId"></label>
+    <input asp-for="AlunoId" />
+    <span asp-validation-for="AlunoId"></span>
+    <br>
+    <label asp-for="PrimeiroNome"></label>
+    <input asp-for="PrimeiroNome" />
+    <span asp-validation-for="PrimeiroNome"></span>
+    <br>
+    <label asp-for="SegundoNome"></label>
+    <input asp-for="SegundoNome" />
+    <span asp-validation-for="SegundoNome"></span>
+    <br>
+    <label asp-for="Sobrenome"></label>
+    <input asp-for="Sobrenome" />
+    <span asp-validation-for="Sobrenome"></span>
+    <br>
+    <label asp-for="NumeroTelefone"></label>
+    <input asp-for="NumeroTelefone" />
+    <span asp-validation-for="NumeroTelefone"></span>
+    <br>
+    <label asp-for="Email"></label>
+    <input asp-for="Email" />
+    <span asp-validation-for="Email"></span>
+    <br>
+    <label asp-for="DataNascimento"></label>
+    <input asp-for="DataNascimento" />
+    <span asp-validation-for="DataNascimento"></span>
+    <br>
+    <br>
+    <input type="submit" value="Cadastrar Aluno" />
+</form>
 
-    <a asp-action="Index">Index Aluno</a>
-</body>
-</html>
+<a asp-action="Index">Index Aluno</a>
