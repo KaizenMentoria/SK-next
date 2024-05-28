@@ -5,7 +5,7 @@
 
 <h1>Cadastrar Novo Aluno</h1>
 <div asp-validation-summary="All" style="color: red"></div>
-<form asp-action="Add" asp-controller="Aluno" method="post">
+<form asp-action="Create" asp-controller="Aluno" method="post">
     <label asp-for="AlunoId"></label>
     <input asp-for="AlunoId" />
     <span asp-validation-for="AlunoId"></span>

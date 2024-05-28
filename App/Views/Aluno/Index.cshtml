@@ -13,7 +13,7 @@
             <th><label asp-for="First() .PrimeiroNome"></label></th>
             <th><label asp-for="First() .SegundoNome"></label></th>
             <th><label asp-for="First() .Sobrenome"></label></th>
-            <th>Details (tag helper)</th>
+            <th>Details</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -38,3 +38,5 @@ else
     <h2>Não Há Alunos Cadastrados.</h2>
 
 }
+
+<a asp-action="Create">Cadastrar Novo Aluno</a>

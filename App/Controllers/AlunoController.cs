@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using App.Models;
 using App.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace App.Controllers;
 
@@ -16,23 +17,23 @@ public class AlunoController : Controller
         _dbContext = dbContext;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()//ListAll
     {
-        // alunos = dbcontext.Alunos
-        // return view(alunos)
-        var alunos = _dbContext.Alunos;
-        return View(alunos);
+        return View(await _dbContext.Alunos.ToListAsync());
     }
 
     [HttpGet]
-    public IActionResult Add()
+    public IActionResult Create()
     {
         return View();
     }
 
     [HttpPost]
-    public IActionResult Add(Aluno novoAluno)
+    public async Task<IActionResult> Create(Aluno novoAluno)
     {
-        return RedirectToAction("Index", novoAluno);
+        novoAluno.DataNascimento = DateTime.SpecifyKind(novoAluno.DataNascimento, DateTimeKind.Utc);
+        _dbContext.Add(novoAluno);
+        await _dbContext.SaveChangesAsync();
+        return RedirectToAction("Index");
     }
 }
