@@ -1,4 +1,5 @@
 @model IEnumerable<Aluno>
+@using App.Helpers
 @{
     ViewData["Title"] = "Aluno Index";
 }
@@ -13,6 +14,7 @@
             <th><label asp-for="First() .PrimeiroNome"></label></th>
             <th><label asp-for="First() .SegundoNome"></label></th>
             <th><label asp-for="First() .Sobrenome"></label></th>
+            <th><label asp-for="First() .DataNascimento"></label></th>
             <th>Details</th>
             <th>Edit</th>
             <th>Delete</th>
@@ -25,6 +27,7 @@
                     <td>@Html.DisplayFor(m => aluno.PrimeiroNome)</td>
                     <td>@Html.DisplayFor(m => aluno.SegundoNome)</td>
                     <td>@Html.DisplayFor(m => aluno.Sobrenome)</td>
+                    <td>@aluno.DataNascimento.ToFormattedDate()</td>
                     <td><a asp-action="ShowDetails" asp-route-id="@aluno.AlunoId">Details</a></td>
                     <td><a asp-action="Edit" asp-route-id="@aluno.AlunoId">Edit</a></td>
                     <td><a asp-action="Delete" asp-route-id="@aluno.AlunoId">Delete</a></td>
