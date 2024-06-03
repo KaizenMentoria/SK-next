@@ -47,4 +47,13 @@ public class AlunoController : Controller
         }
         return NotFound();
     }
+
+    public async Task<IActionResult> Edit(int id)
+    {
+        var aluno = await _dbContext.Alunos.FirstOrDefaultAsync(a => a.AlunoId == id);
+
+        if(aluno != null)
+            return View(aluno);
+        return NotFound();
+    }
 }
