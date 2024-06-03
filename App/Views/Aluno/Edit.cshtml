@@ -1,42 +1,42 @@
 @model Aluno
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Instructor</title>
-</head>
 
-<body>
-    <h1>Edit an Instructor Profile</h1>
+<h1>Editar Aluno: </h1>
 
-    <div asp-validation-summary="All" style="color: red"></div>
-    <form asp-action="Edit" method="post">
-        <input asp-for="@Model.InstructorId" type="hidden" />
-        @*needed so the InstructorId is sent to the Edit(POST)*@
+<div asp-validation-summary="All" style="color: red"></div>
+<form asp-action="Edit" method="post">
 
-        <label asp-for="LastName"></label>
-        <input asp-for="LastName" />
-        <span asp-validation-for="LastName"></span>
-        <br>
-        <label asp-for="IsTenured"></label>
-        <input asp-for="IsTenured" />
-        <span asp-validation-for="IsTenured"></span>
-        <br>
-        <label asp-for="HiringDate"></label>
-        <input asp-for="HiringDate" />
-        <span asp-validation-for="HiringDate"></span>
-        <br>
-        <label asp-for="Rank"></label>
-        <select asp-for="Rank" asp-items="@Html.GetEnumSelectList(typeof(Ranks))"></select>
-        <br>
-        <br />
+    <label asp-for="AlunoId"></label>
+    <input asp-for="@Model.AlunoId" disabled />
+    <span asp-validation-for="AlunoId"></span>
+    <br>
+    <label asp-for="PrimeiroNome"></label>
+    <input asp-for="PrimeiroNome" />
+    <span asp-validation-for="PrimeiroNome"></span>
+    <br>
+    <label asp-for="SegundoNome"></label>
+    <input asp-for="SegundoNome" />
+    <span asp-validation-for="SegundoNome"></span>
+    <br>
+    <label asp-for="Sobrenome"></label>
+    <input asp-for="Sobrenome" />
+    <span asp-validation-for="Sobrenome"></span>
+    <br>
+    <label asp-for="NumeroTelefone"></label>
+    <input asp-for="NumeroTelefone" />
+    <span asp-validation-for="NumeroTelefone"></span>
+    <br>
+    <label asp-for="Email"></label>
+    <input asp-for="Email" />
+    <span asp-validation-for="Email"></span>
+    <br>
+    <label asp-for="DataNascimento"></label>
+    <input asp-for="DataNascimento" />
+    <span asp-validation-for="DataNascimento"></span>
+    <br>
+    <br/>
 
-        <input type="submit" value="Save changes" />
-        <input type="button" onclick="history.back()" value="Cancel">
-    </form>
-</body>
-
-</html>
+    <input type="submit" value="Save changes" />
+    <input type="button" onclick="history.back()" value="Cancel">
+</form>

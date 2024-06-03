@@ -12,6 +12,7 @@
 
 <body>
     <h1>Detalhes do Aluno(a): @Model.PrimeiroNome @Model.Sobrenome</h1>
+    <p><label asp-for="@Model.AlunoId"></label>: @Html.DisplayFor(m => m.AlunoId)</p>
     <p><label asp-for="@Model.PrimeiroNome"></label>: @Html.DisplayFor(m => m.PrimeiroNome)</p>
     <p><label asp-for="@Model.SegundoNome"></label>: @Html.DisplayFor(m => m.SegundoNome)</p>
     <p><label asp-for="@Model.Sobrenome"></label>: @Html.DisplayFor(m => m.Sobrenome)</p>
