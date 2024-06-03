@@ -20,6 +20,7 @@
     <p><label asp-for="@Model.DataNascimento"></label>: @Model.DataNascimento.ToFormattedDate()</p>
 
     <a asp-action="Index">Index</a>
+    <a asp-action="Edit" asp-route-id="@Model.AlunoId">Edit</a>
 </body>
 
 </html>
