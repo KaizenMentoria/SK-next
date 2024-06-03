@@ -36,4 +36,15 @@ public class AlunoController : Controller
         await _dbContext.SaveChangesAsync();
         return RedirectToAction("Index");
     }
+
+    public async Task<IActionResult> ShowDetails(int id)
+    {
+        var aluno = await _dbContext.Alunos.FirstOrDefaultAsync(a => a.AlunoId == id);
+
+        if (aluno != null)
+        {
+            return View(aluno);
+        }
+        return NotFound();
+    }
 }
