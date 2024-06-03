@@ -1,27 +1,18 @@
 @model Aluno
 @using App.Helpers
+@{
+    ViewData["Title"] = "Detalhes do Aluno(a)";
+}
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhes do Aluno(a): @Model.PrimeiroNome @Model.Sobrenome</title>
-</head>
+<h1>Detalhes do Aluno(a): @Model.PrimeiroNome @Model.Sobrenome</h1>
+<p><label asp-for="@Model.AlunoId"></label>: @Html.DisplayFor(m => m.AlunoId)</p>
+<p><label asp-for="@Model.PrimeiroNome"></label>: @Html.DisplayFor(m => m.PrimeiroNome)</p>
+<p><label asp-for="@Model.SegundoNome"></label>: @Html.DisplayFor(m => m.SegundoNome)</p>
+<p><label asp-for="@Model.Sobrenome"></label>: @Html.DisplayFor(m => m.Sobrenome)</p>
+<p><label asp-for="@Model.NumeroTelefone"></label>: @Html.DisplayFor(m => m.NumeroTelefone)</p>
+<p><label asp-for="@Model.Email"></label>: @Html.DisplayFor(m => m.Email)</p>
+<p><label asp-for="@Model.DataNascimento"></label>: @Model.DataNascimento.ToFormattedDate()</p>
 
-<body>
-    <h1>Detalhes do Aluno(a): @Model.PrimeiroNome @Model.Sobrenome</h1>
-    <p><label asp-for="@Model.AlunoId"></label>: @Html.DisplayFor(m => m.AlunoId)</p>
-    <p><label asp-for="@Model.PrimeiroNome"></label>: @Html.DisplayFor(m => m.PrimeiroNome)</p>
-    <p><label asp-for="@Model.SegundoNome"></label>: @Html.DisplayFor(m => m.SegundoNome)</p>
-    <p><label asp-for="@Model.Sobrenome"></label>: @Html.DisplayFor(m => m.Sobrenome)</p>
-    <p><label asp-for="@Model.NumeroTelefone"></label>: @Html.DisplayFor(m => m.NumeroTelefone)</p>
-    <p><label asp-for="@Model.Email"></label>: @Html.DisplayFor(m => m.Email)</p>
-    <p><label asp-for="@Model.DataNascimento"></label>: @Model.DataNascimento.ToFormattedDate()</p>
-
-    <a asp-action="Index">Index</a>
-    <a asp-action="Edit" asp-route-id="@Model.AlunoId">Edit</a>
-</body>
-
-</html>
+<a asp-action="Index">Index</a>
+<a asp-action="Edit" asp-route-id="@Model.AlunoId">Edit</a>
