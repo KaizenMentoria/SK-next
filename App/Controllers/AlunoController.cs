@@ -32,6 +32,12 @@ public class AlunoController : Controller
     public async Task<IActionResult> Create(Aluno novoAluno)
     {
         novoAluno.DataNascimento = DateTime.SpecifyKind(novoAluno.DataNascimento, DateTimeKind.Utc);
+        
+        if(!ModelState.IsValid)
+        {
+            return View(novoAluno);
+        }
+
         _dbContext.Add(novoAluno);
         await _dbContext.SaveChangesAsync();
         return RedirectToAction("Index");
@@ -61,6 +67,36 @@ public class AlunoController : Controller
     [HttpPost]
     public async Task<IActionResult> Edit(Aluno alunoChanges)
     {
-        
+        if(!await AlunoExists(alunoChanges.AlunoId))
+        {
+            return NotFound();
+        }
+
+        if(!ModelState.IsValid)
+        {
+            return View(alunoChanges);
+        }
+        try
+        {
+            _dbContext.Update(alunoChanges);
+            await _dbContext.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if(!await AlunoExists(alunoChanges.AlunoId))
+            {
+                return NotFound();
+            }
+            else
+            {
+                throw;
+            }
+        }
+        return RedirectToAction("Index");
+    }
+
+    private async Task<bool> AlunoExists(int id)
+    {
+        return await _dbContext.Alunos.AnyAsync(a => a.AlunoId == id);
     }
 }
