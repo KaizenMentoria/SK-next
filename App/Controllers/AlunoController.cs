@@ -32,8 +32,8 @@ public class AlunoController : Controller
     public async Task<IActionResult> Create(Aluno novoAluno)
     {
         novoAluno.DataNascimento = DateTime.SpecifyKind(novoAluno.DataNascimento, DateTimeKind.Utc);
-        
-        if(!ModelState.IsValid)
+
+        if (!ModelState.IsValid)
         {
             return View(novoAluno);
         }
@@ -59,7 +59,7 @@ public class AlunoController : Controller
     {
         var aluno = await _dbContext.Alunos.FirstOrDefaultAsync(a => a.AlunoId == id);
 
-        if(aluno != null)
+        if (aluno != null)
             return View(aluno);
         return NotFound();
     }
@@ -67,12 +67,12 @@ public class AlunoController : Controller
     [HttpPost]
     public async Task<IActionResult> Edit(Aluno alunoChanges)
     {
-        if(!await AlunoExists(alunoChanges.AlunoId))
+        if (!await AlunoExists(alunoChanges.AlunoId))
         {
             return NotFound();
         }
 
-        if(!ModelState.IsValid)
+        if (!ModelState.IsValid)
         {
             return View(alunoChanges);
         }
@@ -83,7 +83,7 @@ public class AlunoController : Controller
         }
         catch (DbUpdateConcurrencyException)
         {
-            if(!await AlunoExists(alunoChanges.AlunoId))
+            if (!await AlunoExists(alunoChanges.AlunoId))
             {
                 return NotFound();
             }
@@ -98,5 +98,36 @@ public class AlunoController : Controller
     private async Task<bool> AlunoExists(int id)
     {
         return await _dbContext.Alunos.AnyAsync(a => a.AlunoId == id);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Delete(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+
+        var aluno = await _dbContext.Alunos.FirstOrDefaultAsync(m => m.AlunoId == id);
+        if (aluno == null)
+        {
+            return NotFound();
+        }
+
+        return View(aluno);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteConfirmed(int id)
+    {
+        var aluno = await _dbContext.Alunos.FindAsync(id);
+        if (aluno == null)
+        {
+            return NotFound();
+        }
+        _dbContext.Alunos.Remove(aluno);
+        await _dbContext.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
     }
 }
