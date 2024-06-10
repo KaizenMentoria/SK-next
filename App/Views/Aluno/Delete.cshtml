@@ -1,4 +1,4 @@
-@model YourNamespace.Models.AlunoViewModel
+@model Aluno
 
 @{
     ViewData["Title"] = "Delete";
@@ -12,16 +12,16 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
+            @Html.DisplayNameFor(model => model.PrimeiroNome)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Nome)
+            @Html.DisplayFor(model => model.PrimeiroNome)
         </dd>
         <!-- Add more properties here -->
     </dl>
 </div>
 
-<form asp-action="Delete" asp-route-id="@Model.Id">
+<form asp-action="Delete" asp-route-id="@Model.AlunoId">
     <div class="form-group">
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
