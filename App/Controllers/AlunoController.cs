@@ -71,7 +71,7 @@ public class AlunoController : Controller
         {
             return NotFound();
         }
-
+        alunoChanges.DataNascimento = DateTime.SpecifyKind(alunoChanges.DataNascimento, DateTimeKind.Utc);
         if (!ModelState.IsValid)
         {
             return View(alunoChanges);

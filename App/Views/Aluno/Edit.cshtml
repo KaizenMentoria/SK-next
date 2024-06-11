@@ -8,7 +8,7 @@
 <form asp-action="Edit" method="post">
 
     <label asp-for="AlunoId"></label>
-    <input asp-for="@Model.AlunoId" disabled />
+    <input asp-for="@Model.AlunoId" type="hidden" />
     <span asp-validation-for="AlunoId"></span>
     <br>
     <label asp-for="PrimeiroNome"></label>
