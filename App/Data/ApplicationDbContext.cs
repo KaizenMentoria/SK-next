@@ -11,4 +11,5 @@ public class ApplicationDbContext : IdentityDbContext
     {
     }
     public DbSet<Aluno> Alunos { get; set; }
+    public DbSet<Mentor> Mentores { get; set; }
 }
