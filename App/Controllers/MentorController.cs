@@ -81,7 +81,6 @@ public class MentorController : Controller
         {
             _dbContext.Update(mentorEditado);
             await _dbContext.SaveChangesAsync();
-            return RedirectToAction("Index");
         }
         catch (DbUpdateConcurrencyException)
         {
