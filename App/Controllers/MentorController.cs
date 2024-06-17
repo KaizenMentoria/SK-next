@@ -53,4 +53,47 @@ public class MentorController : Controller
         }
         return NotFound();
     }
+
+    [HttpGet]
+    public async Task<IActionResult> Edit(int id)
+    {
+        var mentor = await _dbContext.Mentores.FirstOrDefaultAsync(m => m.MentorId == id);
+        if (mentor != null)
+        {
+            return View(mentor);
+        }
+        return NotFound();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Edit(Mentor mentorEditado)
+    {
+        if (!await _dbContext.Mentores.AnyAsync(m => m.MentorId == mentorEditado.MentorId))
+        {
+            return NotFound();
+        }
+        mentorEditado.DataNascimento = DateTime.SpecifyKind(mentorEditado.DataNascimento, DateTimeKind.Utc);
+        if (!ModelState.IsValid)
+        {
+            return View(mentorEditado);
+        }
+        try
+        {
+            _dbContext.Update(mentorEditado);
+            await _dbContext.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!await _dbContext.Mentores.AnyAsync(m => m.MentorId == mentorEditado.MentorId))
+            {
+                return NotFound();
+            }
+            else
+            {
+                throw;
+            }
+        }
+        return RedirectToAction("Index");
+    }
 }
