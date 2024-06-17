@@ -1,0 +1,41 @@
+@model Mentor
+@{
+    Layout = "_Layout";
+}
+
+<h1>Cadastrar Novo Mentor</h1>
+<div asp-validation-summary="All" style="color: red"></div>
+<form>
+    <label asp-for="MentorId"></label>
+    <input asp-for="MentorId" />
+    <span asp-validation-for="MentorId"></span>
+    <br>
+    <label asp-for="PrimeiroNome"></label>
+    <input asp-for="PrimeiroNome" />
+    <span asp-validation-for="PrimeiroNome"></span>
+    <br>
+    <label asp-for="SegundoNome"></label>
+    <input asp-for="SegundoNome" />
+    <span asp-validation-for="SegundoNome"></span>
+    <br>
+    <label asp-for="Sobrenome"></label>
+    <input asp-for="Sobrenome" />
+    <span asp-validation-for="Sobrenome"></span>
+    <br>
+    <label asp-for="NumeroTelefone"></label>
+    <input asp-for="NumeroTelefone" />
+    <span asp-validation-for="NumeroTelefone"></span>
+    <br>
+    <label asp-for="Email"></label>
+    <input asp-for="Email" />
+    <span asp-validation-for="Email"></span>
+    <br>
+    <label asp-for="DataNascimento"></label>
+    <input asp-for="DataNascimento" />
+    <span asp-validation-for="DataNascimento"></span>
+    <br>
+    <br>
+    <input type="submit" value="Cadastrar Mentor" />
+</form>
+
+<a asp-action="Index">Index Mentor</a>

@@ -42,4 +42,15 @@ public class MentorController : Controller
         await _dbContext.SaveChangesAsync();
         return RedirectToAction("Index");
     }
+
+    public async Task<IActionResult> ShowDetails(int id)
+    {
+        var mentor = await _dbContext.Mentores.FirstOrDefaultAsync(m => m.MentorId == id);
+
+        if (mentor != null)
+        {
+            return View(mentor);
+        }
+        return NotFound();
+    }
 }
