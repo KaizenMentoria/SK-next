@@ -54,7 +54,7 @@ namespace App.Migrations
 
                     b.HasKey("AlunoId");
 
-                    b.ToTable("Alunos");
+                    b.ToTable("Alunos", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
