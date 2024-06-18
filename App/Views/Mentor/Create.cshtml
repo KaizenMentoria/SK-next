@@ -5,7 +5,7 @@
 
 <h1>Cadastrar Novo Mentor</h1>
 <div asp-validation-summary="All" style="color: red"></div>
-<form>
+<form asp-action="Create" asp-controller="Mentor" method="post">
     <label asp-for="MentorId"></label>
     <input asp-for="MentorId" />
     <span asp-validation-for="MentorId"></span>
