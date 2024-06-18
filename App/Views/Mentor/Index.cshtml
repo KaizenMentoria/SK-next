@@ -1,0 +1,44 @@
+@model IEnumerable<Mentor>
+@using App.Helpers
+@{
+    ViewData["Title"] = "Mentor Index";
+}
+
+<h2>Index - Mentor</h2>
+
+@if (Model.Count() > 0)
+{
+    <table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th><label asp-for="First() .PrimeiroNome"></label></th>
+            <th><label asp-for="First() .SegundoNome"></label></th>
+            <th><label asp-for="First() .Sobrenome"></label></th>
+            <th><label asp-for="First() .DataNascimento"></label></th>
+            <th>Details</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var mentor in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m => mentor.PrimeiroNome)</td>
+                    <td>@Html.DisplayFor(m => mentor.SegundoNome)</td>
+                    <td>@Html.DisplayFor(m => mentor.Sobrenome)</td>
+                    <td>@mentor.DataNascimento.ToFormattedDate()</td>
+                    <td><a asp-action="ShowDetails" asp-route-id="@mentor.MentorId">Details</a></td>
+                    <td><a asp-action="Edit" asp-route-id="@mentor.MentorId">Edit</a></td>
+                    <td><a asp-action="Delete" asp-route-id="@mentor.MentorId">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h2>Não Há Mentores Cadastrados.</h2>
+}
+
+<a asp-action="Create">Cadastrar Novo Mentor</a>
