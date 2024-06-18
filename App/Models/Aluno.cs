@@ -35,5 +35,5 @@ public class Aluno
 
     public Mentor Mentor { get; set; }
     
-    public int MentorId { get; set; }
+    public int? MentorId { get; set; }
 }
