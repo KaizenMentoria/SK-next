@@ -95,4 +95,19 @@ public class MentorController : Controller
         }
         return RedirectToAction("Index");
     }
+    public async Task<bool> MentorExists(int id)
+    {
+        return await _dbContext.Mentores.AnyAsync(m => m.MentorId == id);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var mentor = await _dbContext.Mentores.FirstOrDefaultAsync(m => m.MentorId == id);
+        if (mentor != null)
+        {
+            return View(mentor);
+        }
+        return NotFound();
+    }
 }
