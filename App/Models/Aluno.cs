@@ -33,7 +33,7 @@ public class Aluno
     [DataType(DataType.DateTime)]
     public DateTime DataNascimento { get; set; }
 
-    public Mentor Mentor { get; set; }
+    public Mentor? Mentor { get; set; }
     
     public int? MentorId { get; set; }
 }
